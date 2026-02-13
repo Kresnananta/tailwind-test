@@ -3,7 +3,11 @@ module.exports = {
         './public/**/*.{html,js}'
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                sans: ['Inter', 'ui-sans-serif', 'system-ui']
+            }
+        },
     },
     plugins: [],
 };
