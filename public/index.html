@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../src/output.css">
+    <script src="../tailwind.config.js"></script>
     <!-- <style>
-        * {
-            border: 1px solid red;
-        }
+        
     </style> -->
 </head>
-<body>
+<body class="dark:bg-slate-800 dark:text-slate-200">
     <h1 class="text-5xl font-bold my-10 text-center">Ayo Belajar <span class="bg-linear-to-r from-blue-400 to-teal-300 bg-clip-text text-transparent">TailwindCSS</span></h1>
 
     <section class="mb-10 bg-blue-200">
@@ -45,17 +44,26 @@
 
     <hr class="my-20">
 
+    <div class="flex items-center justify-center my-20">
+        <span class="mr-3 text-sm font-medium text-gray-600 ">Light</span>
+            <label class="relative flex items-center  cursor-pointer">
+            <input type="checkbox" id="toggle" class="sr-only peer">
+                <div class="w-12 h-6 bg-amber-200 hover:bg-amber-300 peer-focus:outline-0  rounded-full peer transition-all ease-in-out duration-500 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0 after:left-0 after:bg-white after:border-amber-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-indigo-700 peer-checked:bg-indigo-600 hover:peer-checked:bg-indigo-700 "></div>
+            </label>
+        <span class="ml-3 text-sm font-medium text-gray-600 ">Dark</span>
+    </div>
+
     <button class="mx-auto px-5 py-3 bg-teal-400 rounded-full font-semibold text-white font-inter block hover:bg-teal-500 active:bg-teal-600 focus:ring focus:ring-red-400">Halo</button>
 
     <div class="max-w-lg my-10 mx-auto p-5 border border-slate-300 rounded-xl shadow-md font-serif hover:bg-pink-400 group">
         <h5 class="font-bold text-pink-400 text-lg mb-3 group-hover:text-white">My Kisah</h5>
-        <p class="text-slate-500 group-hover:text-white selection:bg-teal-400 selection:text-black first-line:tracking-widest first-letter:text-5xl first-letter:float-left first-letter:mr-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga eveniet rem adipisci suscipit ut accusamus dolor eaque quas. Natus, iure maiores, eveniet, laboriosam enim velit eligendi ipsam fugiat possimus facilis tempora fugit suscipit corporis illo sint reprehenderit? Excepturi, voluptatibus explicabo animi possimus maxime cum veritatis, numquam, rerum perferendis pariatur repellat.</p>
+        <p class="text-slate-500 group-hover:text-white selection:bg-teal-400 selection:text-black first-line:tracking-widest first-letter:text-5xl first-letter:float-left first-letter:mr-1 dark:text-slate-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga eveniet rem adipisci suscipit ut accusamus dolor eaque quas. Natus, iure maiores, eveniet, laboriosam enim velit eligendi ipsam fugiat possimus facilis tempora fugit suscipit corporis illo sint reprehenderit? Excepturi, voluptatibus explicabo animi possimus maxime cum veritatis, numquam, rerum perferendis pariatur repellat.</p>
     </div>
 
     <div class="max-w-lg my-10 mx-auto p-5 border border-slate-300 rounded-xl shadow-md font-inter">
         <form action="">
             <label for="email">
-                <span class="block font-semibold mb-1 text-slate-600 after:content-['*'] after:text-orange-400 after:ml-1">Email</span>
+                <span class="block font-semibold mb-1 text-slate-600 after:content-['*'] after:text-orange-400 after:ml-1 dark:text-slate-200">Email</span>
                 <input type="email" id="email" placeholder="johndoe@example.com" class="px-3 py-2 border shadow rounded w-full block text-sm focus:outline-none focus:border-white focus:ring-1 focus:ring-teal-400 invalid:focus:ring-red-400 peer">
                 <p class="text-sm mt-1 text-red-400 invisible peer-invalid:visible">email tidak valid</p>
             </label>
@@ -63,5 +71,15 @@
     </div>
 
     <div class="mb-96"></div>
+
+    <script>
+        const checkbox = document.querySelector('#toggle');
+
+        const html = document.querySelector('html');
+
+        checkbox.addEventListener('change', function() {
+            checkbox.checked ? html.classList.add('dark') : html.classList.remove('dark');
+        })
+    </script>
 </body>
 </html>
